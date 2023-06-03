@@ -1,9 +1,11 @@
 module "name" {
-  source = "../modules/helm"
-
-  name       = "my-prometheus"
-  repository = "https://prometheus-community.github.io/helm-charts"
-  chart      = "kube-prometheus-stack"
+  source     = "../modules/helm"
   namespace  = "monitoring"
-  #version    = "46.5.0"
+  repository = "https://prometheus-community.github.io/helm-charts"
+  app = {
+    deploy  = 1
+    name    = "my-prometheus"
+    chart   = "kube-prometheus-stack"
+    version = "46.5.0"
+  }
 }

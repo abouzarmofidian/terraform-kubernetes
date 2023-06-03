@@ -1,0 +1,15 @@
+config_path    = "~/Desktop/kuber/kube-config.txt"
+namespace      = "demo-wordpress"
+pv_name        = ["demo-mysql-pv", "demo-wordpress-pv"]
+pv_type        = "local"
+pv_capacity    = ["2Gi", "2Gi"]
+path           = ["/shared/demo-mysql-data", "/shared/demo-wp-data"]
+pvc_name       = ["demo-mysql-pvc", "demo-wordpress-pvc"]
+pvc_capacity   = ["2Gi", "2Gi"]
+secret_name    = "wp-secrets"
+mysql_pass     = "mysql1234"
+replicas       = 1
+container_name = "demo-mysql-container"
+image_name     = "mysql:8"
+mysql_port     = 3306
+protocol       = "TCP"

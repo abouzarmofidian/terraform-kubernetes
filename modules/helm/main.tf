@@ -1,10 +1,9 @@
 resource "helm_release" "helm" {
-  name             = var.name
-
-  repository       = var.repository
-  chart            = var.chart
+  count            = var.app["deploy"] ? 1 : 0
   namespace        = var.namespace
   create_namespace = true
-  #version          = var.app_version
-
+  repository       = var.repository
+  name             = var.app["name"]
+  chart            = var.app["chart"]
+  version          = var.app["version"]
 }
